@@ -84,8 +84,7 @@ window.addEventListener('load', function load() {
             ctx.rotate(-1.0471975511965976);
         }
         // Indices for signs
-        ctx.strokeStyle = '#eee';
-
+        ctx.strokeStyle = '#e6e6e6';
         for (let i = 0; i < 12; i++) {
             ctx.beginPath();
             angle = (i + .5) * Math.PI / 6;
@@ -156,15 +155,12 @@ window.addEventListener('load', function load() {
                 ctx.fillStyle = colors.blue;
             }
             if (i == currentSign) {
-                // ctx.fillStyle = colors.yellow;
                 ctx.globalAlpha = 1;
             } else if (currentSign % 2 == i % 2) {
-                // ctx.fillStyle = '#aaa';
                 ctx.globalAlpha = 0.7;
             } else {
-                // ctx.fillStyle = '#ddd';
                 ctx.globalAlpha = 1;
-                ctx.fillStyle   = '#ddd';
+                ctx.fillStyle   = '#ccc';
             }
             ctx.rotate(angle);
             ctx.translate(0, -radius * 0.55);
@@ -177,11 +173,11 @@ window.addEventListener('load', function load() {
         // 24 hours
         ctx.globalAlpha = 1;
         ctx.font        = radius * 0.06 + 'px arial';
-        ctx.fillStyle   = '#ddd';
+        ctx.fillStyle   = '#ccc';
         ctx.beginPath();
         for (let i = 1; i < 25; i++) {
             angle = i * Math.PI / 12;
-            ctx.fillStyle = (i === ((hour === 0) ? 24 : hour)) ? colors.red : '#ddd';
+            ctx.fillStyle = (i === ((hour === 0) ? 24 : hour)) ? colors.red : '#ccc';
             ctx.rotate(angle);
             ctx.translate(0, -radius * 0.8);
             ctx.rotate(-angle);
@@ -195,7 +191,7 @@ window.addEventListener('load', function load() {
         ctx.beginPath();
         for (let i = 1; i < 61; i++) {
             angle = i * Math.PI / 30;
-            ctx.fillStyle = (i === ((minute === 0) ? 60 : minute)) ? colors.green : '#ddd';
+            ctx.fillStyle = (i === ((minute === 0) ? 60 : minute)) ? colors.green : '#ccc';
             ctx.rotate(angle);
             ctx.translate(0, -radius * 0.95);
             ctx.rotate(-angle);
