@@ -185,7 +185,7 @@ window.addEventListener('load', function load() {
             ctx.rotate(angle);
             ctx.translate(0, -radius * 0.8);
             ctx.rotate(-angle);
-            ctx.fillText(String(i), 0, 0);
+            ctx.fillText(i, 0, 0);
             ctx.rotate(angle);
             ctx.translate(0, radius * 0.8);
             ctx.rotate(-angle);
@@ -199,7 +199,7 @@ window.addEventListener('load', function load() {
             ctx.rotate(angle);
             ctx.translate(0, -radius * 0.95);
             ctx.rotate(-angle);
-            ctx.fillText(String(i), 0, 0);
+            ctx.fillText((i < 10) ? '0' + i : i, 0, 0);
             ctx.rotate(angle);
             ctx.translate(0, radius * 0.95);
             ctx.rotate(-angle);
