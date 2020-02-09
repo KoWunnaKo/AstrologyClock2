@@ -63,7 +63,7 @@ window.addEventListener('load', function load() {
         ctx.arc(0, 0, radius * .022, 0, 2 * Math.PI);
         ctx.stroke();
         // Stellated dodecahedron
-        ctx.lineWidth = radius * .01;
+
         for (let i = 0; i < 12; i++) {
             if (i == 0 || i == 4 || i == 8) {
                 ctx.strokeStyle = colors.yellow;
@@ -85,9 +85,10 @@ window.addEventListener('load', function load() {
         }
         // Indices for signs
         ctx.strokeStyle = '#e6e6e6';
+        ctx.lineWidth = radius * .007;
         for (let i = 0; i < 12; i++) {
-            ctx.beginPath();
             angle = (i + .5) * Math.PI / 6;
+            ctx.beginPath();
             ctx.rotate(angle);
             ctx.moveTo(radius * .4, 0);
             ctx.lineTo(radius * .7, 0);
@@ -96,8 +97,8 @@ window.addEventListener('load', function load() {
         }
         // Indices for hours
         for (let i = 0; i < 24; i++) {
-            ctx.beginPath();
             angle = (i + .5) * Math.PI / 12;
+            ctx.beginPath();
             ctx.rotate(angle);
             ctx.moveTo(radius * .7, 0);
             ctx.lineTo(radius * .9, 0);
@@ -106,8 +107,8 @@ window.addEventListener('load', function load() {
         }
         // Indices for minutes / seconds
         for (let i = 0; i < 60; i++) {
-            ctx.beginPath();
             angle = (i + .5) * Math.PI / 30;
+            ctx.beginPath();
             ctx.rotate(angle);
             ctx.moveTo(radius * .9, 0);
             ctx.lineTo(radius, 0);
@@ -142,7 +143,6 @@ window.addEventListener('load', function load() {
         ctx.textAlign    = 'center';
         // 12 signs
         ctx.font = radius * 0.12 + 'px Astro';
-        ctx.beginPath();
         for (let i = 1; i < 13; i++) {
             angle = i * Math.PI / 6;
             if (i == 1 || i == 5 || i == 9) {
@@ -162,6 +162,7 @@ window.addEventListener('load', function load() {
                 ctx.globalAlpha = 1;
                 ctx.fillStyle   = '#ccc';
             }
+            ctx.beginPath();
             ctx.rotate(angle);
             ctx.translate(0, -radius * 0.55);
             ctx.rotate(-angle);
@@ -174,10 +175,10 @@ window.addEventListener('load', function load() {
         ctx.globalAlpha = 1;
         ctx.font        = radius * 0.06 + 'px arial';
         ctx.fillStyle   = '#ccc';
-        ctx.beginPath();
         for (let i = 1; i < 25; i++) {
             angle = i * Math.PI / 12;
             ctx.fillStyle = (i === ((hour === 0) ? 24 : hour)) ? colors.red : '#ccc';
+            ctx.beginPath();
             ctx.rotate(angle);
             ctx.translate(0, -radius * 0.8);
             ctx.rotate(-angle);
@@ -188,10 +189,10 @@ window.addEventListener('load', function load() {
         }
         // 60 minutes / seconds
         ctx.font = radius * 0.04 + 'px arial';
-        ctx.beginPath();
         for (let i = 1; i < 61; i++) {
             angle = i * Math.PI / 30;
             ctx.fillStyle = (i === ((minute === 0) ? 60 : minute)) ? colors.green : '#ccc';
+            ctx.beginPath();
             ctx.rotate(angle);
             ctx.translate(0, -radius * 0.95);
             ctx.rotate(-angle);
